@@ -1,6 +1,7 @@
 # Minor
 A bottom navigation view solution for Android. <br>
-See: https://www.google.com/design/spec/components/bottom-navigation.html
+See: https://www.google.com/design/spec/components/bottom-navigation.html<br><br>
+<img src="https://raw.githubusercontent.com/Batterii/Minor/master/screenshots/device-2016-05-13-180006.png" height="800" width="420"/>
 
 ## About
 There are quite a few solutions for Bottom Navigation on Android, most of them don't allow for using ```Views``` as navigation
