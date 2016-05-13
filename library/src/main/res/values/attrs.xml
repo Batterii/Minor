@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="MinorView">
+
+        <attr name="minor_title" format="string"/>
+
+        <attr name="minor_title_text_color" format="color"/>
+
+        <attr name="minor_title_selected_color" format="color"/>
+
+        <attr name="minor_icon_view" format="reference"/>
+
+        <attr name="minor_selected" format="boolean"/>
+
+    </declare-styleable>
+
+
+    <declare-styleable name="MinorLayout">
+
+        <attr name="minor_center_items" format="boolean"/>
+
+    </declare-styleable>
+</resources>
