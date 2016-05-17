@@ -105,6 +105,30 @@ font)
     android:background="@color/colorPrimary" // set the background color for your layout
 ```
 
+####Notifications
+```java
+package com.akiniyalocts.minorsample;
+
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+
+import com.akiniyalocts.minor.MinorView;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        final MinorView home = (MinorView)findViewById(R.id.last_home);
+
+        home.addNotifcation(8);
+    }
+}
+```
+
 ###Handling Clicks
 Since your navigation items are just views, setting a simple ```OnClickListener``` on that view works!
 
