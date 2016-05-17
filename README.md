@@ -22,7 +22,7 @@ font)
 	}
 
 		dependencies {
-	        compile 'com.github.Batterii:Minor:v1.0'
+	        compile 'com.github.Batterii:Minor:v1.1'
 	}
 ```
 ##Usage
@@ -106,6 +106,7 @@ font)
 ```
 
 ####Notifications
+<img src="https://raw.githubusercontent.com/Batterii/Minor/master/screenshots/Screen%20Shot%202016-05-17%20at%2011.28.47%20AM.png"</>
 ```java
 package com.akiniyalocts.minorsample;
 
