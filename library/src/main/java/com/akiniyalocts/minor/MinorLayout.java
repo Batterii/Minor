@@ -51,7 +51,6 @@ public class MinorLayout extends LinearLayout {
 
         shouldCenter = a.getBoolean(R.styleable.MinorLayout_minor_center_items, false);
 
-
         this.setOrientation(HORIZONTAL);
 
         if(shouldCenter) {
