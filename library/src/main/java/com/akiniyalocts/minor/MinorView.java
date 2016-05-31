@@ -150,10 +150,18 @@ public class MinorView extends FrameLayout{
         TextView notificationTextView = (TextView) notificationView.findViewById(R.id.minor_notification_text);
 
 
-        notificationTextView.setText(String.valueOf(notificationCount));
+        if(notificationCount <= 99) {
+            notificationTextView.setText(String.valueOf(notificationCount));
+        }
+        else {
+            notificationTextView.setText("*");
+        }
         LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP | Gravity.RIGHT);
         params.setMargins(20,15,5,5);
+        notificationView.setPadding(5, 5, 5, 5);
+
         notificationView.setLayoutParams(params);
+
 
         this.addView(notificationView);
 

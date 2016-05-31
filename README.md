@@ -22,7 +22,7 @@ font)
 	}
 
 		dependencies {
-	        compile 'com.github.Batterii:Minor:v1.1'
+	        compile 'com.github.Batterii:Minor:v1.2'
 	}
 ```
 ##Usage
@@ -96,13 +96,16 @@ font)
     app:minor_title_text_color="@android:color/white" // text color for your unselected item
     app:minor_icon_view="@layout/minor_home"// the view (ImageView, Custom font TextView, etc.) 
                                             // inflated as an icon for your item
-                                            // REQUIRED!!!
+                                            // REQUIRED!!!a
 ```
 
 ####MinorLayout
 ```xml
     app:minor_center_items="true" //items are weighted evenly, and centered in the layout
     android:background="@color/colorPrimary" // set the background color for your layout
+
+    app:layout_behavior="com.akiniyalocts.minor.behavior.MinorBehavior"//quick return scrolling behavior (similar to toolbar)
+
 ```
 
 ####Notifications
