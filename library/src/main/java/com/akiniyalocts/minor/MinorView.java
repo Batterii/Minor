@@ -50,6 +50,10 @@ public class MinorView extends FrameLayout{
 
     private TextView titleTextView;
 
+    private FrameLayout notificationView;
+
+    private TextView notificationTextView;
+
     private LayoutParams params;
 
     private void init(Context context, AttributeSet attrs) {
@@ -69,8 +73,6 @@ public class MinorView extends FrameLayout{
         titleColor = a.getColor(R.styleable.MinorView_minor_title_text_color, ContextCompat.getColor(context,android.R.color.primary_text_light));
 
         selectedTitleColor = a.getColor(R.styleable.MinorView_minor_title_selected_color, -1);
-
-
 
         // Build layout
         LinearLayout minorLayout = new LinearLayout(getContext());
@@ -98,13 +100,13 @@ public class MinorView extends FrameLayout{
         }
 
         if(title != null){
-            titleTextView = new TextView(context, attrs);
+            titleTextView = new TextView(context);
 
             titleTextView.setLayoutParams(getLayoutParamsForIconView());
             titleTextView.setText(title);
-            titleTextView.setClickable(false);
-
             titleTextView.setTextColor(titleColor);
+            titleTextView.setClickable(false);
+            titleTextView.setFocusable(false);
 
             if(a.getBoolean(R.styleable.MinorView_minor_selected, false)){
                 if(selectedTitleColor != -1){
@@ -122,10 +124,11 @@ public class MinorView extends FrameLayout{
 
         this.addView(minorLayout);
 
+        initNotificationView();
+
         a.recycle();
 
     }
-
 
     private LayoutParams getLayoutParamsForIconView(){
         if(params == null) {
@@ -144,18 +147,15 @@ public class MinorView extends FrameLayout{
         }
     }
 
-    public void addNotifcation(int notificationCount){
-        FrameLayout notificationView = (FrameLayout) inflate(getContext(), R.layout.minor_notification, null);
+    private void initNotificationView(){
+        if(notificationView == null) {
+            notificationView = (FrameLayout) inflate(getContext(), R.layout.minor_notification, null);
 
-        TextView notificationTextView = (TextView) notificationView.findViewById(R.id.minor_notification_text);
-
-
-        if(notificationCount <= 99) {
-            notificationTextView.setText(String.valueOf(notificationCount));
+            if(notificationTextView == null){
+                notificationTextView = (TextView) notificationView.findViewById(R.id.minor_notification_text);
+            }
         }
-        else {
-            notificationTextView.setText("*");
-        }
+
         LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP | Gravity.RIGHT);
         params.setMargins(20,15,5,5);
         notificationView.setPadding(5, 5, 5, 5);
@@ -165,7 +165,28 @@ public class MinorView extends FrameLayout{
 
         this.addView(notificationView);
 
+        notificationView.setVisibility(INVISIBLE);
+
         invalidate();
+    }
+
+    public void addNotification(final int notificationCount){
+
+        if(notificationView != null){
+            notificationView.setVisibility(VISIBLE);
+        }
+
+        if(notificationCount <= 99) {
+            if(notificationTextView != null) {
+                notificationTextView.setText(String.valueOf(notificationCount));
+            }
+        }
+        else {
+            if(notificationTextView != null) {
+                notificationTextView.setText("*");
+            }
+        }
+
     }
 
     public void unselected(){

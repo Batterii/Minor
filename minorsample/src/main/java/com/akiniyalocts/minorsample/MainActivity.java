@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        home.addNotifcation(87);
+        home.addNotification(87);
 
         final MinorView lists = (MinorView)findViewById(R.id.lists);
 
