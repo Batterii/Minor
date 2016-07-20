@@ -39,10 +39,12 @@
         <com.akiniyalocts.minor.MinorView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:id="@+id/minor_g"
             app:minor_title_selected_color="@color/colorAccent"
             app:minor_title="Home"
             app:minor_title_text_color="@android:color/white"
-            app:minor_icon_view="@layout/minor_home"/>
+            app:minor_icon_view="@layout/minor_text"/>
 
         <com.akiniyalocts.minor.MinorView
             android:layout_width="wrap_content"

@@ -45,6 +45,15 @@ public class MainActivity extends AppCompatActivity {
 
         final MinorView lists = (MinorView)findViewById(R.id.lists);
 
+        final MinorView minorHome = (MinorView)findViewById(R.id.minor_g);
+
+        minorHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                minorHome.selected();
+            }
+        });
+
         lists.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

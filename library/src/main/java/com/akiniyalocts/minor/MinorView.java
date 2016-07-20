@@ -54,6 +54,8 @@ public class MinorView extends FrameLayout{
 
     private TextView notificationTextView;
 
+    private View iconView;
+
     private LayoutParams params;
 
     private void init(Context context, AttributeSet attrs) {
@@ -92,7 +94,7 @@ public class MinorView extends FrameLayout{
 
         // Add icon and title
         if(iconViewRes != -1){
-            View iconView = inflate(context, iconViewRes, null);
+            iconView = inflate(context, iconViewRes, null);
             minorLayout.addView(iconView, getLayoutParamsForIconView());
         }
         else {
@@ -141,6 +143,10 @@ public class MinorView extends FrameLayout{
         if(titleTextView != null) {
             if (selectedTitleColor != -1) {
                 this.titleTextView.setTextColor(selectedTitleColor);
+
+                if(this.iconView instanceof TextView){
+                    ((TextView)iconView).setTextColor(selectedTitleColor);
+                }
 
                 invalidate();
             }
