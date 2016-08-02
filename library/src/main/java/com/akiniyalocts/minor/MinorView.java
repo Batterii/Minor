@@ -195,6 +195,12 @@ public class MinorView extends FrameLayout{
 
     }
 
+    public void clearNotification(){
+        if(notificationView != null){
+            this.notificationView.setVisibility(INVISIBLE);
+        }
+    }
+
     public void unselected(){
         if(titleTextView != null){
             if(titleColor != -1){
