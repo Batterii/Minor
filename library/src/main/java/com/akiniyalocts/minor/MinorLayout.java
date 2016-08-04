@@ -41,6 +41,8 @@ public class MinorLayout extends LinearLayout {
 
     private boolean shouldCenter;
 
+    private boolean vertical = false;
+
     private void initView(Context context, AttributeSet attrs) {
 
         TypedArray a = context.getTheme().obtainStyledAttributes(
@@ -51,13 +53,16 @@ public class MinorLayout extends LinearLayout {
 
         shouldCenter = a.getBoolean(R.styleable.MinorLayout_minor_center_items, false);
 
-        this.setOrientation(HORIZONTAL);
+        vertical = a.getBoolean(R.styleable.MinorLayout_minor_orientation_vertical, false);
+
+        this.setOrientation(vertical ? VERTICAL : HORIZONTAL);
 
         if(shouldCenter) {
             this.setGravity(Gravity.CENTER_HORIZONTAL);
+            this.getLayoutParams();
         }
 
-        this.setLayoutParams(getLayoutParamsForIconView());
+        this.setLayoutParams(getOrientationParams());
 
     }
 
@@ -81,9 +86,25 @@ public class MinorLayout extends LinearLayout {
         invalidate();
     }
 
-    private LayoutParams getLayoutParamsForIconView(){
+    private LayoutParams getOrientationParams(){
+        if(vertical){
+            return getVerticalLayoutParams();
+        }
+        return getLayoutParamsDefault();
+    }
+
+    private LayoutParams getLayoutParamsDefault(){
         if(params == null) {
+
             params = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        }
+        return params;
+    }
+
+    private LayoutParams getVerticalLayoutParams(){
+        if(params == null) {
+
+            params = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         }
         return params;
     }

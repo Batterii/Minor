@@ -21,5 +21,7 @@
 
         <attr name="minor_center_items" format="boolean"/>
 
+        <attr name="minor_orientation_vertical" format="boolean"/>
+
     </declare-styleable>
 </resources>
