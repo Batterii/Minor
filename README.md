@@ -22,7 +22,7 @@ font)
 	}
 
 		dependencies {
-	        compile 'com.github.Batterii:Minor:v1.2.3'
+	        compile 'com.github.Batterii:Minor:v1.2.4'
 	}
 ```
 ##Usage
