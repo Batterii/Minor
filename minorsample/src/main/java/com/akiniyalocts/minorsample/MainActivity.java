@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        lists.addNotification("30+");
     }
 
     private void initRecycler() {
